@@ -21,11 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="50dp"
         android:text="Ad Soyad:"
         android:textColor="#00E676"
+        app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/et_nameupdate" />
 
     <TextView
         android:id="@+id/textView13"
