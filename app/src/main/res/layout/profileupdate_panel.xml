@@ -7,58 +7,78 @@
 
     <EditText
         android:id="@+id/et_nameupdate6"
-        android:layout_width="194dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="357dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="337dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/et_nameupdate5" />
 
     <EditText
         android:id="@+id/et_nameupdate5"
-        android:layout_width="194dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="279dp" />
+        app:layout_constraintBottom_toTopOf="@+id/et_nameupdate6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/et_nameupdate4" />
 
     <EditText
         android:id="@+id/et_nameupdate4"
-        android:layout_width="194dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="210dp" />
+        app:layout_constraintBottom_toTopOf="@+id/et_nameupdate5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/et_nameupdate3" />
 
     <EditText
         android:id="@+id/et_nameupdate3"
-        android:layout_width="194dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="25dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="148dp" />
+        app:layout_constraintBottom_toTopOf="@+id/et_nameupdate4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/et_nameupdate2" />
 
     <EditText
         android:id="@+id/et_nameupdate2"
-        android:layout_width="194dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="90dp" />
+        app:layout_constraintBottom_toTopOf="@+id/et_nameupdate3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/et_nameupdate" />
 
     <Button
         android:id="@+id/btn_cancel1"
@@ -76,9 +96,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginEnd="29dp"
         android:text="Ad Soyad:"
         android:textColor="#00E676"
         app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate"
+        app:layout_constraintEnd_toStartOf="@+id/et_nameupdate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_nameupdate" />
 
@@ -87,9 +109,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginEnd="19dp"
         android:text="Öğrenci No:"
         android:textColor="#00E676"
         app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate2"
+        app:layout_constraintEnd_toStartOf="@+id/et_nameupdate2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_nameupdate2" />
 
@@ -98,9 +122,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginEnd="43dp"
         android:text="Fakülte:"
         android:textColor="#00E676"
         app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate3"
+        app:layout_constraintEnd_toStartOf="@+id/et_nameupdate3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_nameupdate3" />
 
@@ -109,9 +135,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginEnd="49dp"
         android:text="Bölüm:"
         android:textColor="#00E676"
         app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate4"
+        app:layout_constraintEnd_toStartOf="@+id/et_nameupdate4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_nameupdate4" />
 
@@ -120,9 +148,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginEnd="41dp"
         android:text="E-posta:"
         android:textColor="#00E676"
         app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate6"
+        app:layout_constraintEnd_toStartOf="@+id/et_nameupdate6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_nameupdate6" />
 
@@ -131,9 +161,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
+        android:layout_marginEnd="20dp"
         android:text="Telefon No:"
         android:textColor="#00E676"
         app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate5"
+        app:layout_constraintEnd_toStartOf="@+id/et_nameupdate5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/et_nameupdate5" />
 
@@ -149,13 +181,18 @@
 
     <EditText
         android:id="@+id/et_nameupdate"
-        android:layout_width="194dp"
-        android:layout_height="37dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="21dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         android:textSize="14sp"
-        tools:layout_editor_absoluteX="122dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toTopOf="@+id/et_nameupdate2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView16"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
