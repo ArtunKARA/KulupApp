@@ -5,6 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/et_nameupdate6"
+        android:layout_width="194dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="337dp" />
+
+    <EditText
+        android:id="@+id/et_nameupdate5"
+        android:layout_width="194dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="279dp" />
+
+    <EditText
+        android:id="@+id/et_nameupdate4"
+        android:layout_width="194dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="210dp" />
+
+    <EditText
+        android:id="@+id/et_nameupdate3"
+        android:layout_width="194dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="148dp" />
+
+    <EditText
+        android:id="@+id/et_nameupdate2"
+        android:layout_width="194dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textSize="14sp"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="90dp" />
+
     <Button
         android:id="@+id/btn_cancel1"
         android:layout_width="wrap_content"
@@ -32,55 +87,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
         android:text="Öğrenci No:"
         android:textColor="#00E676"
+        app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintTop_toTopOf="@+id/et_nameupdate2" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
         android:text="Fakülte:"
         android:textColor="#00E676"
+        app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toTopOf="@+id/et_nameupdate3" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
         android:text="Bölüm:"
         android:textColor="#00E676"
+        app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toTopOf="@+id/et_nameupdate4" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
         android:text="E-posta:"
         android:textColor="#00E676"
+        app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+        app:layout_constraintTop_toTopOf="@+id/et_nameupdate6" />
 
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
         android:text="Telefon No:"
         android:textColor="#00E676"
+        app:layout_constraintBottom_toBottomOf="@+id/et_nameupdate5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toTopOf="@+id/et_nameupdate5" />
 
     <Button
         android:id="@+id/btn_save1"
