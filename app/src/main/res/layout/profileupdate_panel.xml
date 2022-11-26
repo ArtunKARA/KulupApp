@@ -7,7 +7,8 @@
 
     <EditText
         android:id="@+id/et_nameupdate6"
-        android:layout_width="194dp"
+        android:layout_width="250dp"
+        android:background="@drawable/et_custom"
         android:layout_height="48dp"
         android:layout_marginStart="41dp"
         android:layout_marginTop="21dp"
@@ -20,7 +21,8 @@
 
     <EditText
         android:id="@+id/et_nameupdate5"
-        android:layout_width="194dp"
+        android:background="@drawable/et_custom"
+        android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="21dp"
@@ -33,7 +35,8 @@
 
     <EditText
         android:id="@+id/et_nameupdate4"
-        android:layout_width="194dp"
+        android:background="@drawable/et_custom"
+        android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="49dp"
         android:layout_marginTop="21dp"
@@ -45,8 +48,9 @@
         app:layout_constraintTop_toBottomOf="@+id/et_nameupdate3" />
 
     <EditText
+        android:background="@drawable/et_custom"
         android:id="@+id/et_nameupdate3"
-        android:layout_width="194dp"
+        android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="43dp"
         android:layout_marginTop="21dp"
@@ -58,8 +62,9 @@
         app:layout_constraintTop_toBottomOf="@+id/et_nameupdate2" />
 
     <EditText
+        android:background="@drawable/et_custom"
         android:id="@+id/et_nameupdate2"
-        android:layout_width="194dp"
+        android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="19dp"
         android:layout_marginTop="21dp"
@@ -158,8 +163,9 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
+        android:background="@drawable/et_custom"
         android:id="@+id/et_nameupdate"
-        android:layout_width="194dp"
+        android:layout_width="250dp"
         android:layout_height="48dp"
         android:layout_marginStart="29dp"
         android:layout_marginTop="50dp"

@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.Switch
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 
 class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,8 +17,10 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.register_panel)
         //Firebase setting
         var authR = FirebaseAuth.getInstance()
+        var database = FirebaseDatabase.getInstance()
+        var databaseReference = database?.reference!!.child("profile")
 
-        //swich activity
+        //switch activity
         val sw1 = findViewById<Switch>(R.id.switch2)
 
         sw1.setOnClickListener{
@@ -35,7 +39,7 @@ class RegisterActivity : AppCompatActivity() {
         val name = nameID.text
         val email = emailID.text
         val pas = passwordID.text
-        val repas = repaswordID.text
+        val repas  = repaswordID.text
 
         btnID.setOnClickListener { //Button logic
             if (stdnumber.isEmpty()){
@@ -53,15 +57,32 @@ class RegisterActivity : AppCompatActivity() {
             else if (repas.isEmpty()){
                 repaswordID.error = "Şifre tekrarınızı giriniz"
             }
-            else if (pas != repas){
+            else if (pas.toString() != repas.toString()){
                 Toast.makeText(this, "Şifre ve şifre terarı aynı olmalıdır", Toast.LENGTH_SHORT).show()
                 repaswordID.error = "Şifre ve şifre terarı aynı olmalıdır"
             }
+            else if(pas.length<6){
+                passwordID.error = "Şifreniz en az 6 haneden oluşmalıdır olmalıdır"
+            }
             else{
-                authR.createUserWithEmailAndPassword(stdnumber.toString(),pas.toString()).addOnCompleteListener {  }
-                val intent = Intent(this,MainActivity::class.java)
-                startActivity(intent)
+                authR.createUserWithEmailAndPassword(("${stdnumber.toString()}@kocaeli.edu.tr"),pas.toString()).addOnCompleteListener {
+                    if(it.isSuccessful){
+                        val curentUser = authR.currentUser
+                        val curentUserDb = databaseReference?.child(curentUser?.uid!!)
+                        curentUserDb?.child("name")?.setValue(name.toString())
+                        curentUserDb?.child("email")?.setValue(email.toString())
+                        curentUserDb?.child("faculty")?.setValue("")
+                        curentUserDb?.child("department")?.setValue("")
+                        curentUserDb?.child("telephone")?.setValue("")
 
+                        val intent = Intent(this,MainActivity::class.java)
+                        startActivity(intent)
+                        Toast.makeText(this, "Giriş Yapınız", Toast.LENGTH_SHORT).show()
+                    }
+                    else{
+                        Toast.makeText(this, "Kayıt esnasında hata oluştu", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
 
