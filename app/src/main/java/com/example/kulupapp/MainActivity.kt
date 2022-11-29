@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
         //swich activity
         val sw1 = findViewById<Switch>(R.id.switch2)
         sw1.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            val intentRg = Intent(this, RegisterActivity::class.java)
+            startActivity(intentRg)
         }
 
         //login buttons
@@ -41,13 +41,12 @@ class MainActivity : AppCompatActivity() {
             } else if (pas.isEmpty()) {
                 passwordID.error = "Şifrenizi giriniz"
             } else {
-                authL.signInWithEmailAndPassword(
-                    "${stdnumber.toString()}@kocaeli.edu.tr",
-                    pas.toString()
-                ).addOnCompleteListener {
+                authL.signInWithEmailAndPassword("${stdnumber.toString()}@kocaeli.edu.tr", pas.toString())
+                    .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val intent = Intent(this, StartActivity::class.java)
-                        startActivity(intent)
+                        val intentSt = Intent(this, WeatherApi::class.java)
+                        startActivity(intentSt)
+                        finish()
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }

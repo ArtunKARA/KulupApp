@@ -78,6 +78,7 @@ class RegisterActivity : AppCompatActivity() {
                         val intent = Intent(this,MainActivity::class.java)
                         startActivity(intent)
                         Toast.makeText(this, "Giriş Yapınız", Toast.LENGTH_SHORT).show()
+                        finish()
                     }
                     else{
                         Toast.makeText(this, "Kayıt esnasında hata oluştu", Toast.LENGTH_SHORT).show()

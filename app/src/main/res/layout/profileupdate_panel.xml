@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ProfileUpdateActivity">
 
     <EditText
         android:id="@+id/et_nameupdate6"
@@ -79,8 +80,8 @@
         android:id="@+id/btn_cancel1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="103dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginBottom="100dp"
         android:backgroundTint="#EA1313"
         android:text="İPTAL ET"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -156,8 +157,8 @@
         android:id="@+id/btn_save1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="103dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="100dp"
         android:text="KAYDET"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -175,5 +176,15 @@
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/textView16"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_delaccaunt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:text="Hesabımı Sil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

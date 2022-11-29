@@ -33,7 +33,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:padding="15dp"
-        android:hint="Kulanıcı Adı"
+        android:hint="Öğrenci Numarası"
         android:background="@drawable/et_custom"
         android:inputType="textEmailAddress"
         android:layout_above="@id/et_password"
