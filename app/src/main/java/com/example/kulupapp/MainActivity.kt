@@ -9,10 +9,17 @@ import android.widget.Switch
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.awaitAll
+import okhttp3.internal.wait
 
 class MainActivity : AppCompatActivity() {
+    var admin : String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_panel)
@@ -44,9 +51,33 @@ class MainActivity : AppCompatActivity() {
                 authL.signInWithEmailAndPassword("${stdnumber.toString()}@kocaeli.edu.tr", pas.toString())
                     .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        val intentSt = Intent(this, WeatherApi::class.java)
-                        startActivity(intentSt)
-                        finish()
+                        var authR = FirebaseAuth.getInstance()
+                        var database = FirebaseDatabase.getInstance()
+                        var databaseReference = database?.reference!!.child("users")
+                        val curentUser = authR.currentUser
+                        val curentUserDb = databaseReference?.child(curentUser?.uid!!)
+
+                        curentUserDb!!.addValueEventListener(object : ValueEventListener {
+                            override fun onDataChange(snapshot: DataSnapshot) {
+                                 admin = snapshot.child("admin").value.toString()
+                                if (admin == "Deneme"){
+                                    val intentAdm = Intent(baseContext, ClupAdministrationActivitiy::class.java)
+                                    startActivity(intentAdm)
+                                    finish()
+                                }
+                                else{
+                                    val intentSt = Intent(baseContext, StartActivity::class.java)
+                                    startActivity(intentSt)
+                                    finish()
+                                }
+                            }
+
+                            override fun onCancelled(error: DatabaseError) {
+                                TODO("Not yet implemented")
+                            }
+
+                        })
+
                     } else {
                         Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
@@ -57,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             val database = Firebase.database
             val myRef = database.getReference("message")
 
-            myRef.setValue("Hellodsfdsf!")
+            myRef.setValue("Not Problem!")
         }
     }
 }

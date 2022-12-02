@@ -18,7 +18,7 @@ class RegisterActivity : AppCompatActivity() {
         //Firebase setting
         var authR = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance()
-        var databaseReference = database?.reference!!.child("profile")
+        var databaseReference = database?.reference!!.child("users")
 
         //switch activity
         val sw1 = findViewById<Switch>(R.id.switch2)
@@ -74,6 +74,8 @@ class RegisterActivity : AppCompatActivity() {
                         curentUserDb?.child("faculty")?.setValue("")
                         curentUserDb?.child("department")?.setValue("")
                         curentUserDb?.child("telephone")?.setValue("")
+                        curentUserDb?.child("stdnumber")?.setValue(stdnumber.toString())
+                        curentUserDb?.child("admin")?.setValue("")
 
                         val intent = Intent(this,MainActivity::class.java)
                         startActivity(intent)

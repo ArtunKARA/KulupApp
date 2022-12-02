@@ -10,12 +10,13 @@ import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 class WeatherApi : AppCompatActivity(){
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather_api)
 
-                val buttonX=findViewById<Button>(R.id.button)
-        buttonX.setOnClickListener{
+        val buttonX=findViewById<Button>(R.id.button)
+        //buttonX.setOnClickListener{
 
 
 
@@ -57,7 +58,7 @@ class WeatherApi : AppCompatActivity(){
                     }
                 })
             }
-        }
+        //}
     }
 
 //Api'nin veri çekmesi için gerekli class sistemi

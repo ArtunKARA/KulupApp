@@ -23,7 +23,7 @@ class ProfileUpdateActivity : AppCompatActivity() {
         //Firebase setting
         var authR = FirebaseAuth.getInstance()
         var database = FirebaseDatabase.getInstance()
-        var databaseReference = database?.reference!!.child("profile")
+        var databaseReference = database?.reference!!.child("users")
         val curentUser = authR.currentUser
         val curentUserDb = databaseReference?.child(curentUser?.uid!!)
 
