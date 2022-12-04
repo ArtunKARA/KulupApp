@@ -1,14 +1,10 @@
 package com.example.kulupapp
 
-import android.app.Dialog
 import android.content.Intent
-import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.InputBinding
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
@@ -26,13 +22,13 @@ class ProfileInfoActivity : AppCompatActivity() {
         val curentUserDb = databaseReference?.child(curentUser?.uid!!)
 
         //Components settings
-        val  btnID  = findViewById<Button>(R.id.btn_update1) //Components id set
-        val  nameID = findViewById<TextView>(R.id.tv_name)
-        val  stdnumberID = findViewById<TextView>(R.id.tv_stdnumber)
-        val  facultyID = findViewById<TextView>(R.id.tv_faculty)
-        val  departmentID = findViewById<TextView>(R.id.tv_department)
-        val  phonenumberID = findViewById<TextView>(R.id.tv_phonenumber)
-        val  emailId = findViewById<TextView>(R.id.tv_email)
+        val  btnID  = findViewById<Button>(R.id.btn_delMemeber) //Components id set
+        val  nameID = findViewById<TextView>(R.id.tv_name2)
+        val  stdnumberID = findViewById<TextView>(R.id.tv_stdnumber1)
+        val  facultyID = findViewById<TextView>(R.id.tv_faculty1)
+        val  departmentID = findViewById<TextView>(R.id.tv_department1)
+        val  phonenumberID = findViewById<TextView>(R.id.tv_phonenumber1)
+        val  emailId = findViewById<TextView>(R.id.tv_email1)
 
         //data getting area
         curentUserDb?.addValueEventListener(object : ValueEventListener {
@@ -48,7 +44,6 @@ class ProfileInfoActivity : AppCompatActivity() {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
         })
 
         //button setting area
