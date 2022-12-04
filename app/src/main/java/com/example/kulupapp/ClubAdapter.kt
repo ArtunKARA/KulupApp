@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -20,6 +21,7 @@ class ClubAdapter(private val clubSet: ArrayList<club>,val context: Context) :
         //val textView: TextView
         val clupname : TextView = view.findViewById(R.id.tv_clubnamecard)
         val clupshortinfo : TextView = view.findViewById(R.id.tv_shortclub1)
+        val cluppitch : ImageView = view.findViewById(R.id.imageView2)
     }
 
     // Create new views (invoked by the layout manager)
@@ -35,15 +37,14 @@ class ClubAdapter(private val clubSet: ArrayList<club>,val context: Context) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.clupname.text = clubSet[position].name
         viewHolder.clupshortinfo.text = clubSet[position].shortInfo
+        Pica
 
         viewHolder.itemView.setOnClickListener{
 
-            var user = clubSet[position]
-            var name:String? = user.name
-            var stdnumber:String? = user.shortInfo
+            var club = clubSet[position]
 
             var intent = Intent(context,ClubDetailActivity::class.java)
-
+            intent.putExtra("putkey",club.name)
             context.startActivity(intent)
         }
     }

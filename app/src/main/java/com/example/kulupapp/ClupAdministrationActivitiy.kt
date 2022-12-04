@@ -70,6 +70,7 @@ class ClupAdministrationActivitiy : AppCompatActivity() {
                 if (snapshot.exists()){
                     for (userSnapshot in snapshot.children){
                         val user =userSnapshot.getValue(user::class.java)
+                        user!!.key = userSnapshot.key  //.value.toString()
                         if (user!!.club == curentClub){//Selector for club member
                             userArrayList.add(user!!)
                         }

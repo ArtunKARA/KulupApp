@@ -24,7 +24,7 @@ class AdminUserInfoActivity : AppCompatActivity() {
         var database = FirebaseDatabase.getInstance()
         var databaseReference = database?.reference!!.child("users")
         val curentUser = authR.currentUser
-        val curentUserDb = databaseReference?.child(curentUser?.uid!!)
+        val curentUserDb = databaseReference?.child(intent.getStringExtra("putkey").toString())
 
         //Components settings
         val  btnID  = findViewById<Button>(R.id.btn_delMemeber) //Components id set
@@ -34,6 +34,7 @@ class AdminUserInfoActivity : AppCompatActivity() {
         val  departmentID = findViewById<TextView>(R.id.tv_department1)
         val  phonenumberID = findViewById<TextView>(R.id.tv_phonenumber1)
         val  emailId = findViewById<TextView>(R.id.tv_email1)
+
 
         //data getting area
         curentUserDb?.addValueEventListener(object : ValueEventListener {

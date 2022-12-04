@@ -41,8 +41,7 @@ class CustomAdapter(private val userList: ArrayList<user>,val context: Context) 
             var stdnumber:String? = user.stdnumber
 
             var intent = Intent(context,AdminUserInfoActivity::class.java)
-            /*intent.putExtra("putadisoyadi",name)
-            intent.putExtra("putyasi",stdnumber)*/
+            intent.putExtra("putkey",user.key)
 
             context.startActivity(intent)
         }
