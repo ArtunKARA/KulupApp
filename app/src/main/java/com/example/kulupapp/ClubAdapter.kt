@@ -37,7 +37,6 @@ class ClubAdapter(private val clubSet: ArrayList<club>,val context: Context) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.clupname.text = clubSet[position].name
         viewHolder.clupshortinfo.text = clubSet[position].shortInfo
-        Pica
 
         viewHolder.itemView.setOnClickListener{
 

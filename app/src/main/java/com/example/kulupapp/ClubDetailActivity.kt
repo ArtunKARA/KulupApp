@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class ClubDetailActivity : AppCompatActivity() {
-    var clups : String? = null
+    var clups : String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.club_detail_panel)
@@ -46,6 +46,21 @@ class ClubDetailActivity : AppCompatActivity() {
         curentUserDb?.addValueEventListener(object : ValueEventListener {//club info setting area
         override fun onDataChange(snapshot: DataSnapshot) {
             clups = snapshot.child("club").value.toString()
+            val btn = findViewById<Button>(R.id.btn_registerclp)
+            val have = clups!!.indexOf(findViewById<TextView>(R.id.tv_clpname2).text.toString())
+            if (have == -1){
+                btn.setOnClickListener {
+                    if(clups == null){
+                        curentUserDb?.child("club")?.setValue(findViewById<TextView>(R.id.tv_clpname2).text.toString())
+                    }
+                    else{
+                        curentUserDb?.child("club")?.setValue(clups+findViewById<TextView>(R.id.tv_clpname2).text.toString())
+                    }
+                }
+            }
+            else{
+                btn.text = "Kayıtlısınız"
+            }
         }
 
             override fun onCancelled(error: DatabaseError) {
@@ -53,14 +68,5 @@ class ClubDetailActivity : AppCompatActivity() {
             }
         })
 
-        val btn = findViewById<Button>(R.id.btn_registerclp)
-        btn.setOnClickListener {
-            if(clups == null){
-                curentUserDb?.child("club")?.setValue(findViewById<TextView>(R.id.tv_clpname2).text.toString())
-            }
-            else{
-                curentUserDb?.child("club")?.setValue(clups+findViewById<TextView>(R.id.tv_clpname2).text.toString())
-            }
-        }
     }
 }
