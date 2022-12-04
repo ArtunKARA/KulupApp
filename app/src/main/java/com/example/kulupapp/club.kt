@@ -5,5 +5,4 @@ class club {
     var longInfo : String? = null
     var kind : String? = null
     var photo: String? = null
-
 }

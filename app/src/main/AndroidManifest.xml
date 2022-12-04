@@ -15,6 +15,27 @@
         android:theme="@style/Theme.KulupApp"
         tools:targetApi="31">
         <activity
+            android:name=".AdminUserInfoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".ClubInfoAdminActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".StartActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ClupAdministrationActivitiy"
             android:exported="false">
             <meta-data
@@ -37,13 +58,6 @@
         </activity>
         <activity
             android:name=".ProfileInfoActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".StartActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

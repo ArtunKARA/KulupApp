@@ -9,6 +9,4 @@ class user {
     var name : String? = null
     var stdnumber : String?  = null
     var telephone : String? = null
-
-
 }

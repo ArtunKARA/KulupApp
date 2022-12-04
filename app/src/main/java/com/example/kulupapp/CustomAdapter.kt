@@ -34,18 +34,18 @@ class CustomAdapter(private val userList: ArrayList<user>,val context: Context) 
         viewHolder.tvname.text = userList[position].name
         viewHolder.tvstdnumber.text = userList[position].stdnumber
 
-        /*viewHolder.itemView.setOnClickListener{
+        viewHolder.itemView.setOnClickListener{
 
             var user = userList[position]
             var name:String? = user.name
             var stdnumber:String? = user.stdnumber
 
-            var intent = Intent(context,ClupAdministrationActivitiy::class.java)
-            intent.putExtra("putadisoyadi",name)
-            intent.putExtra("putyasi",stdnumber)
+            var intent = Intent(context,ProfileInfoActivity::class.java)
+            /*intent.putExtra("putadisoyadi",name)
+            intent.putExtra("putyasi",stdnumber)*/
 
             context.startActivity(intent)
-        }*/
+        }
 
     }
 

@@ -76,6 +76,7 @@ class RegisterActivity : AppCompatActivity() {
                         curentUserDb?.child("telephone")?.setValue("")
                         curentUserDb?.child("stdnumber")?.setValue(stdnumber.toString())
                         curentUserDb?.child("admin")?.setValue("")
+                        curentUserDb?.child("club")?.setValue("")
 
                         val intent = Intent(this,MainActivity::class.java)
                         startActivity(intent)

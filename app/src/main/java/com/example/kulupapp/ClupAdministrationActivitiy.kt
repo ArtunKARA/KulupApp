@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -28,6 +29,8 @@ class ClupAdministrationActivitiy : AppCompatActivity() {
         val curentUser = authR.currentUser
         val curentUserDb = databaseReference?.child(curentUser?.uid!!)
 
+
+        //get club member info recyclerview
         curentUserDb?.addValueEventListener(object : ValueEventListener {//set witch admin club
             override fun onDataChange(snapshot: DataSnapshot) {
                 curentClub = snapshot.child("admin").value.toString()
@@ -41,6 +44,13 @@ class ClupAdministrationActivitiy : AppCompatActivity() {
                 userArrayList = arrayListOf<user>()
                 getUserData(curentClub)
 
+                //Club Info Button
+                val btnEdt = findViewById<Button>(R.id.btn_editClup)
+
+                btnEdt.setOnClickListener {
+                val intent = Intent(this@ClupAdministrationActivitiy,ClubInfoAdminActivity::class.java)
+                startActivity(intent)
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -48,8 +58,9 @@ class ClupAdministrationActivitiy : AppCompatActivity() {
             }
         })
 
-    }
 
+
+    }
 
     //Get target user data
     private fun getUserData(curentClub : String) {
@@ -73,7 +84,6 @@ class ClupAdministrationActivitiy : AppCompatActivity() {
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
         })
     }
 }
