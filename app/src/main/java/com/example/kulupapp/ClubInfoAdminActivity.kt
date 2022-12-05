@@ -71,10 +71,11 @@ class ClubInfoAdminActivity : AppCompatActivity() {
             val btnSV = findViewById<Button>(R.id.btn_infoSave)
             btnSV.setOnClickListener {
                 val longInfoPanel = findViewById<EditText>(R.id.et_longInfoClub)
+                val urlId = findViewById<EditText>(R.id.et_url)
                 if (shortInfoPanel.text.length <= 280){
                     curentClubDb?.child("longInfo")?.setValue(longInfoPanel.text.toString())
                     curentClubDb?.child("shortInfo")?.setValue(shortInfoPanel.text.toString())
-
+                    curentClubDb?.child("photoClub")?.setValue(urlId.text.toString())
                     Toast.makeText(this@ClubInfoAdminActivity, "Kayıt başarılı", Toast.LENGTH_SHORT).show()
                     var intent = Intent(this@ClubInfoAdminActivity,ClupAdministrationActivitiy::class.java)
                     startActivity(intent)

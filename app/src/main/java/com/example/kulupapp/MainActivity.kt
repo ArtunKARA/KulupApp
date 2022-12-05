@@ -3,10 +3,7 @@ package com.example.kulupapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Switch
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
@@ -19,13 +16,30 @@ import kotlinx.coroutines.awaitAll
 import okhttp3.internal.wait
 
 class MainActivity : AppCompatActivity() {
-    var admin : String? = null
+    //var admin : String? =  ""
+    var cubsnames : String? = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login_panel)
 
         //Firebase setting
         var authL = FirebaseAuth.getInstance()
+        var databaseClub = FirebaseDatabase.getInstance()
+        var databaseReferenceClub = databaseClub?.reference!!.child("club")
+
+        //Clubs names set
+        databaseReferenceClub.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    for (userSnapshot in snapshot.children){
+                        cubsnames += userSnapshot.key.toString()
+                    }
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
 
         //swich activity
         val sw1 = findViewById<Switch>(R.id.switch2)
@@ -59,8 +73,8 @@ class MainActivity : AppCompatActivity() {
 
                         curentUserDb!!.addValueEventListener(object : ValueEventListener {
                             override fun onDataChange(snapshot: DataSnapshot) {
-                                 admin = snapshot.child("admin").value.toString()
-                                if (admin == "Deneme"){
+                                 var admin = snapshot.child("admin").value.toString()
+                                if ((cubsnames?.indexOf(admin) != -1) && (admin.isNotEmpty())){
                                     val intentAdm = Intent(baseContext, ClupAdministrationActivitiy::class.java)
                                     startActivity(intentAdm)
                                     finish()

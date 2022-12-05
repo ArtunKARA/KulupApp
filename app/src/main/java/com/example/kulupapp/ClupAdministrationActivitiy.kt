@@ -71,7 +71,7 @@ class ClupAdministrationActivitiy : AppCompatActivity() {
                     for (userSnapshot in snapshot.children){
                         val user =userSnapshot.getValue(user::class.java)
                         user!!.key = userSnapshot.key  //.value.toString()
-                        if (user!!.club == curentClub){//Selector for club member
+                        if (user!!.club?.indexOf(curentClub) != -1){//Selector for club member
                             userArrayList.add(user!!)
                         }
                     }

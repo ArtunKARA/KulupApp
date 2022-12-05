@@ -142,7 +142,6 @@ class StartActivity : AppCompatActivity() {
                 if (snapshot.exists()){
                     for (userSnapshot in snapshot.children){
                         val club = userSnapshot.getValue(club::class.java)
-                        club!!.name = userSnapshot.key
                         clubArrayList.add(club!!)
                     }
                     clupRecyclerView.adapter = ClubAdapter(clubArrayList,this@StartActivity)

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 
 class ClubAdapter(private val clubSet: ArrayList<club>,val context: Context) :
@@ -22,6 +23,7 @@ class ClubAdapter(private val clubSet: ArrayList<club>,val context: Context) :
         val clupname : TextView = view.findViewById(R.id.tv_clubnamecard)
         val clupshortinfo : TextView = view.findViewById(R.id.tv_shortclub1)
         val cluppitch : ImageView = view.findViewById(R.id.imageView2)
+
     }
 
     // Create new views (invoked by the layout manager)
@@ -37,6 +39,9 @@ class ClubAdapter(private val clubSet: ArrayList<club>,val context: Context) :
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.clupname.text = clubSet[position].name
         viewHolder.clupshortinfo.text = clubSet[position].shortInfo
+        Picasso.with(this.context).load(clubSet[position].photoClub)
+            .placeholder(R.drawable.hehe)
+            .into(viewHolder.cluppitch)
 
         viewHolder.itemView.setOnClickListener{
 

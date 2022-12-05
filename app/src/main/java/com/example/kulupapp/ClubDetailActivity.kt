@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.squareup.picasso.Picasso
 
 class ClubDetailActivity : AppCompatActivity() {
     var clups : String? = ""
@@ -34,6 +36,11 @@ class ClubDetailActivity : AppCompatActivity() {
         override fun onDataChange(snapshot: DataSnapshot) {
             var clpname = findViewById<TextView>(R.id.tv_clpname2)
             val longInfo = findViewById<TextView>(R.id.tv_longinfo)
+            val clbpitch = findViewById<ImageView>(R.id.imageView)
+
+            Picasso.with(this@ClubDetailActivity).load(snapshot.child("photoClub").value.toString())
+                .placeholder(R.drawable.hehe)
+                .into(clbpitch)
             clpname.text = snapshot.child("name").value.toString()
             longInfo.text = snapshot.child("longInfo").value.toString()
         }
