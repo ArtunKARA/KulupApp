@@ -15,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class AdminUserInfoActivity : AppCompatActivity() {
+    lateinit var userclb : String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.admin_user_info_panel)
@@ -25,6 +26,7 @@ class AdminUserInfoActivity : AppCompatActivity() {
         var databaseReference = database?.reference!!.child("users")
         val curentUser = authR.currentUser
         val curentUserDb = databaseReference?.child(intent.getStringExtra("putkey").toString())
+        val adminUserDb = databaseReference?.child(curentUser!!.uid)
 
         //Components settings
         val  btnID  = findViewById<Button>(R.id.btn_delMemeber) //Components id set
@@ -45,6 +47,7 @@ class AdminUserInfoActivity : AppCompatActivity() {
                 departmentID.text = snapshot.child("department").value.toString()
                 phonenumberID.text = snapshot.child("telephone").value.toString()
                 emailId.text = snapshot.child("email").value.toString()
+                userclb = snapshot.child("club")?.value.toString()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -62,7 +65,19 @@ class AdminUserInfoActivity : AppCompatActivity() {
                 .setPositiveButton("Sil", DialogInterface.OnClickListener {
                         dialog, id ->
                         // delete user information this club
-                        curentUserDb?.child("club")?.setValue("")
+
+                    adminUserDb?.addValueEventListener(object : ValueEventListener {
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                             var thiscluplength = snapshot.child("admin").value.toString().length
+                             var thiscluplocation = userclb.indexOf(snapshot.child("admin").value.toString())
+                             curentUserDb?.child("club")?.setValue(userclb.substring(0,thiscluplocation)+userclb.substring(thiscluplocation+thiscluplength,userclb.length-1))
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            TODO("Not yet implemented")
+                        }
+
+                    })
                         val intent = Intent(this,ClupAdministrationActivitiy::class.java)
                         Toast.makeText(this, "Kulanınıcı Kulüpten Kaldırılmıştır", Toast.LENGTH_SHORT).show()
                         startActivity(intent)
